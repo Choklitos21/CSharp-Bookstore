@@ -37,4 +37,23 @@ public class UserController: Controller
 
         return RedirectToAction("Index");
     }
+    
+    public async Task<IActionResult> EditUser(User newUser)
+    {
+        
+        if (ModelState.IsValid)
+        {
+            await _userService.UpdateUser(newUser);
+        }
+
+        return RedirectToAction("Index");
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> DeleteUser(int id)
+    {
+        await _userService.DeleteUser(id);
+
+        return RedirectToAction("Index");
+    }
 }

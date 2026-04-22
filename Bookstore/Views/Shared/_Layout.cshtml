@@ -23,18 +23,19 @@
         </div>
 
         <nav class="flex-1 p-4 space-y-2">
-            <a asp-controller="Book" asp-action="Index"
-                class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition">
-                📚 Books
-            </a>
-
+            
             <a asp-controller="User" asp-action="Index"
-                class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+               class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition">
                 👤 Users
             </a>
 
+            <a asp-controller="Book" asp-action="Index"
+               class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+                📚 Books
+            </a>
+
             <a asp-controller="Loan" asp-action="Index"
-                class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition">
+               class="block px-4 py-2 rounded-lg hover:bg-gray-700 transition">
                 🔄 Loans
             </a>
         </nav>
