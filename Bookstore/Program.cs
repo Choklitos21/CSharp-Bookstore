@@ -1,10 +1,13 @@
 using Bookstore.Data;
+using Bookstore.Response;
+using Bookstore.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<UserService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

@@ -2,7 +2,55 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="max-w-4xl mx-auto">
+
+    <!-- Hero Section -->
+    <div class="bg-white shadow rounded-2xl p-8 mb-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">
+            Welcome to Bookstore Management System
+        </h1>
+
+        <p class="text-gray-600 text-lg leading-relaxed">
+            This platform allows you to efficiently manage a library where books are loaned to users.
+            You can register new users, add and organize books, and handle loan transactions in a simple and structured way.
+        </p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Books -->
+        <div class="bg-white shadow rounded-xl p-6 hover:shadow-md transition">
+            <h2 class="text-xl font-semibold mb-2">📚 Books</h2>
+            <p class="text-gray-600 text-sm">
+                Manage the collection of books available in the library. Add, edit, or remove books.
+            </p>
+        </div>
+
+        <!-- Users -->
+        <div class="bg-white shadow rounded-xl p-6 hover:shadow-md transition">
+            <h2 class="text-xl font-semibold mb-2">👤 Users</h2>
+            <p class="text-gray-600 text-sm">
+                Keep track of registered users who can borrow books from the system.
+            </p>
+        </div>
+
+        <!-- Loans -->
+        <div class="bg-white shadow rounded-xl p-6 hover:shadow-md transition">
+            <h2 class="text-xl font-semibold mb-2">🔄 Loans</h2>
+            <p class="text-gray-600 text-sm">
+                Manage book loans, assign books to users, and monitor active transactions.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Call to Action -->
+    <div class="mt-8 text-center">
+        <a asp-controller="Books" asp-action="Index"
+            class="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition">
+            Get Started
+        </a>
+    </div>
+
 </div>
