@@ -37,7 +37,8 @@ public class AppDbContext: DbContext
             entity.HasOne(b => b.Loan)
                 .WithMany(l => l.Books)
                 .HasForeignKey(b => b.LoanId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull); 
         });
     }
 }

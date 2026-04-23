@@ -6,6 +6,6 @@ public class Book
     public string Title { get; set; }
     public string Author { get; set; }
     
-    public int LoanId { get; set; }
-    public Loan Loan { get; set; }
+    public int? LoanId { get; set; }
+    public Loan? Loan { get; set; }
 }
