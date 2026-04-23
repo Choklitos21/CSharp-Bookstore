@@ -57,4 +57,44 @@ public class LoanService
 
         return loan;
     }
+
+    public async Task<ResponseService<Loan>> UpdateLoan(int loanId, DateTime newDate, List<int> newBookIds)
+    {
+        var loan = await _context.Loan
+            .Include(l => l.Books)
+            .FirstOrDefaultAsync(l => l.Id == loanId);
+
+        if (loan is null)
+            throw new Exception("Loan not found");
+        
+        loan.Date = DateOnly.FromDateTime(newDate);
+        
+        foreach (var book in loan.Books)
+            book.LoanId = null;
+        
+        var newBooks = await _context.Book
+            .Where(b => newBookIds.Contains(b.Id))
+            .ToListAsync();
+
+        foreach (var book in newBooks)
+            book.LoanId = loanId;
+
+        await _context.SaveChangesAsync();
+        
+        return new ResponseService<Loan>(
+            loan,
+            "Loan Updated",
+            true);
+    }
+
+    public async Task DeleteLoan(int id)
+    {
+        var loan = await _context.Loan.FindAsync(id);
+
+        if (loan is null)
+            throw new Exception("Loan not found");
+
+        _context.Loan.Remove(loan);
+        await _context.SaveChangesAsync();
+    }
 }

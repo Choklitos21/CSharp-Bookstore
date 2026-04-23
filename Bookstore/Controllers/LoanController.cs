@@ -45,4 +45,24 @@ public class LoanController: Controller
 
         return RedirectToAction("Index");
     }
+
+    public async Task<IActionResult> EditLoan(int loanId, DateTime date, List<int> newBooksIds)
+    {
+        var response = await _loanService.UpdateLoan(loanId, date, newBooksIds);
+        
+        if (response == null)
+        {
+            TempData["Message"] = "holi";
+        }
+
+        return RedirectToAction("Index");
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> DeleteLoan(int id)
+    {
+        await _loanService.DeleteLoan(id);
+
+        return RedirectToAction("Index");
+    }
 }
