@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<BookService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<LoanService>();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 

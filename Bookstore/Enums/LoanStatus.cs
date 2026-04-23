@@ -3,5 +3,5 @@
 public enum LoanStatus
 {
     OnLoan,
-    Available
+    Returned
 }

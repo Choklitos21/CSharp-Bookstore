@@ -83,5 +83,23 @@ public class UserService
             "User not found",
             false);
     }
+
+    public async Task<ResponseService<User>> GetUserById(int id)
+    {
+        var user = await _context.User.FirstOrDefaultAsync(u => u.Id == id);
+
+        if (user != null)
+        {
+            return new ResponseService<User>(
+                user,
+                "User found",
+                true);
+        }
+        
+        return new ResponseService<User>(
+            user,
+            "User not found",
+            false);
+    }
     
 }

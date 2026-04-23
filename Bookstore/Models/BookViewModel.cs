@@ -4,5 +4,5 @@ public class BookViewModel
 {
     public Book Book { get; set; } = new Book();
 
-    public IEnumerable<Book> BookList { get; set; } = new List<Book>();
+    public ICollection<Book> BookList { get; set; } = new List<Book>();
 }

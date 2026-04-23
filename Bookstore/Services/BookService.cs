@@ -83,5 +83,23 @@ public class BookService
             "Book not found",
             false);
     }
+
+    public async Task<ResponseService<ICollection<Book>>> GetBooksById(List<int> booksId)
+    {
+        var books = await _context.Book.Where(b => booksId.Contains(b.Id)).ToListAsync();
+
+        if (books.Count > 0)
+        {
+            return new ResponseService<ICollection<Book>>(
+                books,
+                "Books founds",
+                true);
+        }
+        
+        return new ResponseService<ICollection<Book>>(
+            books,
+            "Books not found",
+            false);
+    }
     
 }

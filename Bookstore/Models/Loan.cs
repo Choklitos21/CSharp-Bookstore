@@ -5,7 +5,7 @@ namespace Bookstore.Models;
 public class Loan
 {
     public int Id { get; set; }
-    public DateTime Date { get; set; }
+    public DateOnly Date { get; set; }
     public LoanStatus Status { get; set; }
 
     public ICollection<Book> Books { get; set; } = new List<Book>();
